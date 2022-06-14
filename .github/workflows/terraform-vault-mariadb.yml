@@ -49,6 +49,9 @@ jobs:
         with:
           action: plan
           directory: ./examples/${{ matrix.config.name }}
+        env:
+          TF_CLI_ARGS: "-var='mariadb_addr=\"http://mariadb:3306\"' "
+          
       - name: terraform apply
         uses: robertdebock/terraform-action@1.1.2
         with:
