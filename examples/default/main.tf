@@ -1,5 +1,5 @@
 module "vault-mariadb" {
-  source = "../../../"
+  source = "../../"
 
   vault_addr       = "http://${vault.public_ip}:${vault.vault_port}"
   mariadb_addr     = "{{username}}:{{password}}@tcp(${mariadb.address}:3306)/"
