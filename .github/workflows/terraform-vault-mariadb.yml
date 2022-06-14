@@ -50,7 +50,7 @@ jobs:
           action: plan
           directory: ./examples/${{ matrix.config.name }}
         env:
-          TF_CLI_ARGS: "-var='mariadb_addr=\"http://mariadb:3306\"' -var='mariadb_username=\"root\"' -var='mariadb_password=\"root_password\"' -var='vault_addr=\"http://vault:8200\"' -var='vault_token=\"dev_root_token\"'"
+          TF_CLI_ARGS: "-var='mariadb_addr=http://mariadb:3306' -var='mariadb_username=root' -var='mariadb_password=root_password' -var='vault_addr=http://vault:8200' -var='vault_token=dev_root_token'"
           
       - name: terraform apply
         uses: robertdebock/terraform-action@1.1.2
