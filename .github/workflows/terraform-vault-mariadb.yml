@@ -2,13 +2,14 @@
 on:
   - push
 
+env:
+  VAULT_ADDR: "http://vault:8200"
+  VAULT_TOKEN: "dev_root_token"
+  MARIADB_ROOT_PASSWORD: "root_password"
+
 jobs:
   terraform:
     name: terraform
-    env:
-      VAULT_ADDR: "http://vault:8200"
-      VAULT_TOKEN: "dev_root_token"
-      MARIADB_ROOT_PASSWORD: "root_password"
     runs-on: ubuntu-20.04
     strategy:
       max-parallel: 1
@@ -20,13 +21,13 @@ jobs:
       vault:
         image: vault
         env:
-          VAULT_DEV_ROOT_TOKEN_ID: ${{ jobs.terraform.env.VAULT_TOKEN }}
+          VAULT_DEV_ROOT_TOKEN_ID: ${{ VAULT_TOKEN }}
         ports:
           - 8200
       mariadb:
         image: mariadb
         env:
-          MARIADB_ROOT_PASSWORD: ${{ jobs.terraform.env.MARIADB_ROOT_PASSWORD }}
+          MARIADB_ROOT_PASSWORD: ${{ MARIADB_ROOT_PASSWORD }}
         ports:
           - 3306
 
