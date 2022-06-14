@@ -15,18 +15,18 @@ jobs:
       matrix:
         config:
           - name: default
-          
+
     services:
       vault:
         image: vault
         env:
-          VAULT_DEV_ROOT_TOKEN_ID: ${{ VAULT_TOKEN }}
+          VAULT_DEV_ROOT_TOKEN_ID: ${{ jobs.terraform.env.VAULT_TOKEN }}
         ports:
           - 8200
       mariadb:
         image: mariadb
         env:
-          MARIADB_ROOT_PASSWORD: ${{ root_password }}
+          MARIADB_ROOT_PASSWORD: ${{ jobs.terraform.env.MARIADB_ROOT_PASSWORD }}
         ports:
           - 3306
 
