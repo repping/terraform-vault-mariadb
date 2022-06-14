@@ -1,6 +1,6 @@
 variable "mariadb_addr" {
   description = "Address of the MariaDB database to connect to."
-  type = string
+  type        = string
   default     = null
 
   validation {
@@ -10,7 +10,7 @@ variable "mariadb_addr" {
 }
 variable "mariadb_username" {
   description = "Username to use to connect to the MariaDB RDS instance."
-  type = string
+  type        = string
   default     = null
 
   validation {
@@ -20,7 +20,7 @@ variable "mariadb_username" {
 }
 variable "mariadb_password" {
   description = "Password to use to connect to the MariaDB RDS instance."
-  type = string
+  type        = string
   default     = null
 
   validation {
