@@ -1,25 +1,25 @@
 resource "vault_mount" "mariadb" {
-  path = "mariadb" # TODO var
+  path = "mariadb"
   type = "database"
 }
 
 resource "vault_database_secret_backend_connection" "mariadb" {
+  allowed_roles = ["test"]
   backend       = vault_mount.mariadb.path
   name          = "mariadb"
-  allowed_roles = ["test"]
 
   mysql {
     connection_url = var.mariadb_connection_url
-    username       = var.mariadb_username
     password       = var.mariadb_password
+    username       = var.mariadb_username
   }
 }
 
 resource "vault_database_secret_backend_role" "role" {
   backend             = vault_mount.mariadb.path
-  name                = "test"
+  creation_statements = ["CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT ON *.* TO '{{name}}'@'%';"]
   db_name             = vault_database_secret_backend_connection.mariadb.name
-  creation_statements = ["CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT ON *.* TO '{{name}}'@'%';"] # TODO var for SELECT (* of all etc)
   default_ttl         = 3600
   max_ttl             = 36000
+  name                = "test"
 }
