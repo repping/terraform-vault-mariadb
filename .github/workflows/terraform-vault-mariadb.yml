@@ -6,8 +6,8 @@ jobs:
   terraform:
     name: terraform
     env:
-      # mariadb_addr: "http://mariadb:3306"
-      mariadb_addr: "mariadb_addr={{username}}:{{password}}@tcp(mariadb:3306)/"
+      # mariadb_addr: "mariadb_addr={{username}}:{{password}}@tcp(mariadb:3306)/"
+      mariadb_addr: "{{username}}:{{password}}@tcp(mariadb:3306)/"
       mariadb_username: "root"
       mariadb_password: "root_password"
       vault_addr: "http://vault:8200"
