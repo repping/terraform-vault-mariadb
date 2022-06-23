@@ -25,13 +25,13 @@ jobs:
         env:
           VAULT_DEV_ROOT_TOKEN_ID: "dev_root_token"
         ports:
-          - 8200
+          - 8200:8200
       mariadb:
         image: mariadb
         env:
           MARIADB_ROOT_PASSWORD: "root_password"
         ports:
-          - 3306
+          - 3306:3306
 
     steps:
       - name: checkout
