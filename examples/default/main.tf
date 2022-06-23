@@ -1,9 +1,9 @@
 module "vault-mariadb" {
   source = "../../"
-# TODO geen vars maar de echte waarden
-  mariadb_connection_url     = var.mariadb_connection_url
-  mariadb_password = var.mariadb_password
-  mariadb_username = var.mariadb_username
-  vault_addr       = var.vault_addr
-  vault_token      = var.vault_token
+  # TODO geen vars maar de echte waarden
+  mariadb_connection_url = "{{username}}:{{password}}@tcp(mariadb:3306)/"
+  mariadb_password       = "root_password"
+  mariadb_username       = "root"
+  vault_addr             = "http://vault:8200"
+  vault_token            = "dev_root_token"
 }
