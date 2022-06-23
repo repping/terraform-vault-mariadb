@@ -1,4 +1,4 @@
-variable "mariadb_addr" {
+variable "mariadb_connection_url" {
   description = "Address of the MariaDB database to connect to."
   type        = string
   default     = null

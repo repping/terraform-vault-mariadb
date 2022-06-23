@@ -9,7 +9,7 @@ resource "vault_database_secret_backend_connection" "mariadb" {
   allowed_roles = ["test"]
 
   mysql {
-    connection_url = var.mariadb_addr
+    connection_url = var.mariadb_connection_url
     username       = var.mariadb_username
     password       = var.mariadb_password
   }
