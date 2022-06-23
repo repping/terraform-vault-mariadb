@@ -1,5 +1,5 @@
 resource "vault_mount" "mariadb" {
-  path = "mariadb"
+  path = "mariadb" # TODO var
   type = "database"
 }
 
@@ -19,7 +19,7 @@ resource "vault_database_secret_backend_role" "role" {
   backend             = vault_mount.mariadb.path
   name                = "test"
   db_name             = vault_database_secret_backend_connection.mariadb.name
-  creation_statements = ["CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT ON *.* TO '{{name}}'@'%';"]
+  creation_statements = ["CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT ON *.* TO '{{name}}'@'%';"] # TODO var for SELECT (* of all etc)
   default_ttl         = 3600
   max_ttl             = 36000
 }

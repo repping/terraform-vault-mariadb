@@ -4,7 +4,7 @@ variable "mariadb_connection_url" {
   default     = null
 
   validation {
-    condition     = length(var.mariadb_addr) != 0
+    condition     = length(var.mariadb_connection_url) != 0
     error_message = "Please specify the address of the MariaDB RDS instance to connect to."
   }
 }
