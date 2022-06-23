@@ -1,7 +1,6 @@
 variable "mariadb_connection_url" {
   description = "Address of the MariaDB database to connect to."
   type        = string
-  default     = null
 
   validation {
     condition     = length(var.mariadb_connection_url) != 0
@@ -11,7 +10,7 @@ variable "mariadb_connection_url" {
 variable "mariadb_username" {
   description = "Username to use to connect to the MariaDB RDS instance."
   type        = string
-  default     = null
+  default     = "root"
 
   validation {
     condition     = length(var.mariadb_username) != 0
@@ -21,7 +20,6 @@ variable "mariadb_username" {
 variable "mariadb_password" {
   description = "Password to use to connect to the MariaDB RDS instance."
   type        = string
-  default     = null
 
   validation {
     condition     = length(var.mariadb_password) != 0
@@ -31,7 +29,6 @@ variable "mariadb_password" {
 variable "vault_addr" {
   description = "Address of the Vault instance to connect to."
   type        = string
-  default     = null
 
   validation {
     condition     = length(var.vault_addr) != 0
@@ -41,7 +38,6 @@ variable "vault_addr" {
 variable "vault_token" {
   description = "Token to use to connect to Vault and configure the dynamic secrets engine."
   type        = string
-  default     = null
 
   validation {
     condition     = length(var.vault_token) != 0
