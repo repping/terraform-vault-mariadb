@@ -44,14 +44,6 @@ jobs:
         with:
           action: plan
           directory: ./examples/${{ matrix.config.name }}
-      - name: debug
-        run: |
-          resolvectl status || exit 0
-          nslookup vault || exit 0
-          ping -c 3 vault || exit 0
-      - name: check container
-        run: docker ps
-        if: ${{ always() }}
       - name: terraform apply
         uses: robertdebock/terraform-action@1.1.2
         with:
