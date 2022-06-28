@@ -1,5 +1,10 @@
 # module: Vault - MariaDB
 
+## Terraform registry
+This modules is available on the Terraform registry:  
+https://registry.terraform.io/modules/repping/mariadb/vault/latest
+
+
 ## Variables
 |inputs|
 |-|
