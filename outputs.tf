@@ -1,1 +1,1 @@
-# No outputs but outputs.tf is a hard requirement to publish on the Terraform Registry.
+# No output is defined, this file is here for compatibility reasons.
